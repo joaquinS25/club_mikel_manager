@@ -2,18 +2,31 @@
 // includes/auth.php  -> funciones comunes de seguridad
 if (session_status() === PHP_SESSION_NONE) session_start();
 
+// ⚙️ AJUSTA ESTAS DOS RUTAS SI HACE FALTA (son relativas a admin/ y user/)
+if (!defined('LOGIN_URL')) define('LOGIN_URL', '../index.php');   // página de login de Club Mikel
+if (!defined('CLUB_URL'))  define('CLUB_URL',  '../home.php');    // dashboard de Club Mikel
+
+// 🔗 PUENTE: la sesión de Club Mikel (solo entra el administrador) es la sesión del simulador.
+// Club Mikel guarda: autentificado, id_session, nom_session
+if (!empty($_SESSION['autentificado']) && empty($_SESSION['id']) && !empty($_SESSION['id_session'])) {
+    $_SESSION['id']       = (int)$_SESSION['id_session'];
+    $_SESSION['usuario']  = (string)($_SESSION['nom_session'] ?? 'Administrador');
+    $_SESSION['rol']      = 'admin';
+    $_SESSION['via_club'] = true;
+}
+
 // Escapar texto antes de imprimirlo en HTML (evita XSS)
 function e($s){ return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
 
-// Exige sesión iniciada (estudiante registrado o admin)
+// Exige sesión iniciada
 function require_login(){
-    if (empty($_SESSION['id'])) { header("Location: ../index.php"); exit(); }
+    if (empty($_SESSION['id'])) { header("Location: " . LOGIN_URL); exit(); }
 }
 
 // Exige sesión + rol admin
 function require_admin(){
     require_login();
-    if (($_SESSION['rol'] ?? '') !== 'admin') { header("Location: ../user/panel.php"); exit(); }
+    if (($_SESSION['rol'] ?? '') !== 'admin') { header("Location: " . LOGIN_URL); exit(); }
 }
 
 // ¿Es un invitado que entró por un enlace de examen?
@@ -21,10 +34,10 @@ function es_invitado(){
     return !empty($_SESSION['invitado']) && empty($_SESSION['id']);
 }
 
-// Permite usuario registrado O invitado (para examen.php y procesar_respuesta.php)
+// Permite administrador O invitado (para examen.php y procesar_respuesta.php)
 function require_participante(){
     if (!empty($_SESSION['id']) || es_invitado()) return;
-    header("Location: ../index.php"); exit();
+    header("Location: " . LOGIN_URL); exit();
 }
 
 function nombre_participante(){

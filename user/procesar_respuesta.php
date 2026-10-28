@@ -73,8 +73,9 @@ $color      = $aprobado ? "success" : "danger";
 $tiempo     = min(time() - (int)$ex['inicio'], (int)$ex['duracion']);
 
 // 💾 Guardar resultado (registrado o invitado)
-$idUsuario = $invitado ? null : (int)$_SESSION['id'];
-$nombre    = $invitado ? $_SESSION['invitado']['nombre'] : null;
+$viaClub   = !empty($_SESSION['via_club']);
+$idUsuario = ($invitado || $viaClub) ? null : (int)$_SESSION['id'];
+$nombre    = $invitado ? $_SESSION['invitado']['nombre'] : ($viaClub ? $_SESSION['usuario'] : null);
 $idEnlace  = $invitado ? (int)$_SESSION['invitado']['id_enlace'] : null;
 $idCuest   = (int)$ex['cuestionario'];
 $capitulo  = (string)$ex['capitulo'];

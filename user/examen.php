@@ -123,9 +123,7 @@ $idsJs    = array_map('intval', array_column($preguntas, 'id'));
         <i class="bi bi-clipboard-check"></i> <?= $invitado ? 'Participante:' : 'Bienvenido' ?> <?= e(nombre_participante()) ?>
     </span>
     <?php if (!$invitado) { ?>
-    <a href="../auth/logout.php" class="btn btn-danger btn-sm">
-        <i class="bi bi-box-arrow-right"></i> Salir
-    </a>
+    <a href="<?= CLUB_URL ?>" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left-circle"></i> Club Mikel</a>
     <?php } ?>
 </div>
 </nav>

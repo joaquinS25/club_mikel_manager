@@ -42,7 +42,7 @@ $totalPreguntas = (int)$stmt->get_result()->fetch_row()[0];
 <nav class="navbar navbar-dark bg-dark">
 <div class="container-fluid">
     <span class="navbar-brand">Bienvenido <?= e($_SESSION['usuario'] ?? '') ?></span>
-    <a href="../auth/logout.php" class="btn btn-danger btn-sm"><i class="bi bi-box-arrow-right"></i> Salir</a>
+    <a href="<?= CLUB_URL ?>" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left-circle"></i> Club Mikel</a>
 </div>
 </nav>
 

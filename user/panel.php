@@ -33,7 +33,7 @@ body{ background:#f4f6f9; }
         <?php if (($_SESSION['rol'] ?? '') === 'admin') { ?>
             <a href="../admin/dashboard.php" class="btn btn-secondary btn-sm"><i class="bi bi-gear"></i> Admin</a>
         <?php } ?>
-        <a href="../auth/logout.php" class="btn btn-danger btn-sm"><i class="bi bi-box-arrow-right"></i> Salir</a>
+        <a href="<?= CLUB_URL ?>" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left-circle"></i> Club Mikel</a>
     </div>
 </div>
 </nav>

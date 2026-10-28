@@ -54,7 +54,7 @@ $lista = $con->query("SELECT * FROM cuestionarios")->fetch_all(MYSQLI_ASSOC);
     <span class="navbar-brand"><i class="bi bi-book"></i> Gestión de Cuestionarios</span>
     <div>
         <a href="dashboard.php" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left"></i> Dashboard</a>
-        <a href="../auth/logout.php" class="btn btn-danger btn-sm"><i class="bi bi-box-arrow-right"></i> Salir</a>
+        <a href="<?= CLUB_URL ?>" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left-circle"></i> Club Mikel</a>
     </div>
 </div>
 </nav>
