@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2026 a las 01:31:31
+-- Tiempo de generación: 20-11-2026 a las 01:20:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -116,9 +116,10 @@ CREATE TABLE `cuestionarios` (
 --
 
 INSERT INTO `cuestionarios` (`id`, `nombre`, `descripcion`, `fecha_creacion`, `imagen`) VALUES
-(1, 'ESTAFADO POR EL ESTOFADO', NULL, '2026-03-26 23:08:47', 'estafadoporElestofado.jpeg'),
-(2, 'Pioneros Adventistas', NULL, '2026-03-26 23:09:08', 'Pioneros Adventistas.png'),
-(3, 'Reptiles', NULL, '2026-08-17 05:43:10', 'reptiles.png');
+(6, 'Arte de Acampar AR-001', NULL, '2026-11-18 17:57:44', '3e327fe9ca14bc25.jpg'),
+(7, 'Modales Cristianos AM-011', NULL, '2026-11-18 17:58:14', '71f77670351c2aa7.jpg'),
+(8, 'Pioneros Adventistas AM-043', NULL, '2026-11-18 17:58:48', '963bf966907e0a7d.jpg'),
+(9, 'Caminata con Mochila AR-056', NULL, '2026-11-18 17:59:33', 'e51084d4c49b3b37.jpg');
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,7 @@ CREATE TABLE `enlaces_examen` (
 --
 
 INSERT INTO `enlaces_examen` (`id`, `token`, `id_cuestionario`, `capitulo`, `etiqueta`, `mostrar_respuestas`, `activo`, `expira`, `creado`) VALUES
-(1, '2eb0f9beab2d4729b65f7aabd79ca4d8', 1, '1', '', 1, 1, '2026-10-28 18:26:00', '2026-10-26 23:26:23');
+(2, '8c7be64f4f8773c083c1e4d6d2b9220a', 6, 'final', '', 1, 1, '2026-11-19 23:59:00', '2026-11-18 18:10:27');
 
 -- --------------------------------------------------------
 
@@ -169,114 +170,16 @@ CREATE TABLE `preguntas` (
 --
 
 INSERT INTO `preguntas` (`id`, `pregunta`, `opcion_a`, `opcion_b`, `opcion_c`, `opcion_d`, `respuesta_correcta`, `explicacion`, `capitulo`, `id_cuestionario`) VALUES
-(2, '¿Cuál es el mensaje principal del libro?', 'La comida es importante', 'La obediencia a Dios', 'La riqueza', 'El éxito', 'B', NULL, '1', 1),
-(3, '¿Qué representa el estofado?', 'Una bendición', 'Una tentación', 'Un castigo', 'Un premio', 'B', NULL, '1', 1),
-(4, '¿Quién toma una decisión impulsiva?', 'El protagonista', 'Un amigo', 'Un rey', 'Un profeta', 'A', NULL, '1', 1),
-(5, '¿Qué enseñanza deja la historia?', 'Valorar lo espiritual', 'Buscar riqueza', 'Ser impulsivo', 'Ignorar consejos', 'A', NULL, '1', 1),
-(6, '¿Qué simboliza la pérdida?', 'Fracaso', 'Consecuencia de malas decisiones', 'Mala suerte', 'Destino', 'B', NULL, '1', 1),
-(7, '¿Qué valor se resalta?', 'Paciencia', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '1', 1),
-(8, '¿Qué actitud evita errores?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Desobediencia', 'A', NULL, '1', 1),
-(9, '¿Qué enseñanza bíblica se refleja?', 'Obediencia', 'Desorden', 'Pereza', 'Orgullo', 'A', NULL, '1', 1),
-(10, '¿Qué representa la decisión final?', 'Victoria', 'Pérdida', 'Éxito', 'Suerte', 'B', NULL, '1', 1),
-(11, '¿Qué error se comete?', 'Impulsividad', 'Paciencia', 'Sabiduría', 'Amor', 'A', NULL, '1', 1),
-(12, '¿Qué se prioriza incorrectamente?', 'Espiritual', 'Material', 'Emocional', 'Social', 'B', NULL, '1', 1),
-(13, '¿Qué se aprende del error?', 'No pensar', 'Pensar antes de actuar', 'Actuar rápido', 'Ignorar', 'B', NULL, '1', 1),
-(14, '¿Qué actitud faltó?', 'Sabiduría', 'Orgullo', 'Envidia', 'Miedo', 'A', NULL, '1', 1),
-(15, '¿Qué simboliza el hambre?', 'Necesidad', 'Debilidad', 'Fuerza', 'Éxito', 'B', NULL, '1', 1),
-(16, '¿Qué consecuencia hay?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '1', 1),
-(17, '¿Qué enseñanza se repite?', 'Reflexión', 'Impulsividad', 'Desobediencia', 'Pereza', 'A', NULL, '1', 1),
-(18, '¿Qué valor es importante?', 'Control', 'Orgullo', 'Envidia', 'Egoísmo', 'A', NULL, '1', 1),
-(19, '¿Qué acción fue incorrecta?', 'Decidir rápido', 'Esperar', 'Orar', 'Pensar', 'A', NULL, '1', 1),
-(20, '¿Qué simboliza el acto?', 'Error', 'Victoria', 'Sabiduría', 'Fuerza', 'A', NULL, '1', 1),
-(21, '¿Qué enseñanza queda?', 'Ser sabio', 'Ser impulsivo', 'Ignorar', 'Correr', 'A', NULL, '1', 1),
-(22, '¿Qué actitud se critica?', 'Impulsividad', 'Paciencia', 'Sabiduría', 'Fe', 'A', NULL, '1', 1),
-(23, '¿Qué se pierde?', 'Algo valioso', 'Nada', 'Tiempo', 'Amigos', 'A', NULL, '1', 1),
-(24, '¿Qué representa el intercambio?', 'Error grave', 'Éxito', 'Suerte', 'Juego', 'A', NULL, '1', 1),
-(25, '¿Qué valor falta?', 'Dominio propio', 'Orgullo', 'Egoísmo', 'Ambición', 'A', NULL, '1', 1),
-(26, '¿Qué enseñanza deja?', 'Pensar', 'Actuar rápido', 'Ignorar', 'Evitar', 'A', NULL, '1', 1),
-(27, '¿Qué actitud mejora decisiones?', 'Reflexión', 'Impulsividad', 'Miedo', 'Orgullo', 'A', NULL, '1', 1),
-(28, '¿Qué error se evita?', 'Apresurarse', 'Esperar', 'Pensar', 'Reflexionar', 'A', NULL, '1', 1),
-(29, '¿Qué representa el deseo?', 'Debilidad', 'Fuerza', 'Victoria', 'Logro', 'A', NULL, '1', 1),
-(30, '¿Qué enseñanza es clave?', 'Control', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '1', 1),
-(31, '¿Qué se necesita?', 'Paciencia', 'Rapidez', 'Orgullo', 'Impulsividad', 'A', NULL, '1', 1),
-(32, '¿Qué actitud genera errores?', 'Impulsividad', 'Paciencia', 'Sabiduría', 'Amor', 'A', NULL, '1', 1),
-(33, '¿Qué enseñanza espiritual hay?', 'Obedecer', 'Ignorar', 'Desobedecer', 'Olvidar', 'A', NULL, '1', 1),
-(34, '¿Qué representa la historia?', 'Lección', 'Juego', 'Historia', 'Cuento', 'A', NULL, '1', 1),
-(35, '¿Qué valor se promueve?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '1', 1),
-(36, '¿Qué actitud es correcta?', 'Pensar', 'Actuar rápido', 'Ignorar', 'Evitar', 'A', NULL, '1', 1),
-(37, '¿Qué consecuencia trae el error?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '1', 1),
-(38, '¿Qué simboliza el acto?', 'Debilidad', 'Fuerza', 'Victoria', 'Logro', 'A', NULL, '1', 1),
-(39, '¿Qué enseñanza queda?', 'Reflexionar', 'Ignorar', 'Evitar', 'Correr', 'A', NULL, '1', 1),
-(40, '¿Qué valor falta?', 'Control', 'Orgullo', 'Envidia', 'Egoísmo', 'A', NULL, '1', 1),
-(41, '¿Qué actitud es mejor?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '1', 1),
-(42, '¿Qué decisión fue mala?', 'Apresurada', 'Pensada', 'Reflexiva', 'Sabia', 'A', NULL, '1', 1),
-(43, '¿Qué aprendizaje queda?', 'Pensar antes', 'Actuar rápido', 'Ignorar', 'Evitar', 'A', NULL, '1', 1),
-(44, '¿Qué simboliza el error?', 'Debilidad', 'Fuerza', 'Éxito', 'Logro', 'A', NULL, '1', 1),
-(45, '¿Qué enseñanza es clave?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '1', 1),
-(46, '¿Qué valor es importante?', 'Dominio propio', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '1', 1),
-(47, '¿Qué enseña el capítulo 2?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '2', 1),
-(48, '¿Qué valor se destaca?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Ambición', 'A', NULL, '2', 1),
-(49, '¿Qué se debe evitar?', 'Apresurarse', 'Pensar', 'Reflexionar', 'Esperar', 'A', NULL, '2', 1),
-(50, '¿Qué actitud es correcta?', 'Reflexión', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '2', 1),
-(51, '¿Qué consecuencia hay por malas decisiones?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '2', 1),
-(52, '¿Qué valor se promueve?', 'Dominio propio', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '2', 1),
-(53, '¿Qué enseñanza deja?', 'Pensar antes de actuar', 'Actuar rápido', 'Ignorar', 'Evitar', 'A', NULL, '2', 1),
-(54, '¿Qué simboliza la historia?', 'Lección', 'Juego', 'Suerte', 'Destino', 'A', NULL, '2', 1),
-(55, '¿Qué actitud mejora decisiones?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '2', 1),
-(56, '¿Qué valor espiritual se enseña?', 'Obediencia', 'Desobediencia', 'Olvido', 'Desorden', 'A', NULL, '2', 1),
-(57, '¿Qué enseña el capítulo 3?', 'Reflexión', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '3', 1),
-(58, '¿Qué valor es importante?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Ambición', 'A', NULL, '3', 1),
-(59, '¿Qué se debe evitar?', 'Actuar sin pensar', 'Reflexionar', 'Esperar', 'Analizar', 'A', NULL, '3', 1),
-(60, '¿Qué actitud es correcta?', 'Pensar', 'Apresurarse', 'Ignorar', 'Evitar', 'A', NULL, '3', 1),
-(61, '¿Qué consecuencia hay?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '3', 1),
-(62, '¿Qué valor se resalta?', 'Paciencia', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '3', 1),
-(63, '¿Qué enseñanza queda?', 'Reflexionar', 'Ignorar', 'Evitar', 'Correr', 'A', NULL, '3', 1),
-(64, '¿Qué simboliza la historia?', 'Lección', 'Juego', 'Destino', 'Suerte', 'A', NULL, '3', 1),
-(65, '¿Qué actitud evita errores?', 'Pensar', 'Apresurarse', 'Ignorar', 'Evitar', 'A', NULL, '3', 1),
-(66, '¿Qué valor espiritual hay?', 'Obediencia', 'Desobediencia', 'Olvido', 'Desorden', 'A', NULL, '3', 1),
-(67, '¿Qué enseña el capítulo 4?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '4', 1),
-(68, '¿Qué valor destaca?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Ambición', 'A', NULL, '4', 1),
-(69, '¿Qué se debe evitar?', 'Apresurarse', 'Pensar', 'Reflexionar', 'Esperar', 'A', NULL, '4', 1),
-(70, '¿Qué actitud es correcta?', 'Reflexión', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '4', 1),
-(71, '¿Qué consecuencia hay?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '4', 1),
-(72, '¿Qué valor se promueve?', 'Dominio propio', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '4', 1),
-(73, '¿Qué enseñanza deja?', 'Pensar antes', 'Actuar rápido', 'Ignorar', 'Evitar', 'A', NULL, '4', 1),
-(74, '¿Qué simboliza la historia?', 'Lección', 'Juego', 'Suerte', 'Destino', 'A', NULL, '4', 1),
-(75, '¿Qué actitud mejora decisiones?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '4', 1),
-(76, '¿Qué valor espiritual se enseña?', 'Obediencia', 'Desobediencia', 'Olvido', 'Desorden', 'A', NULL, '4', 1),
-(77, '¿Qué enseña el capítulo 5?', 'Reflexión', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '5', 1),
-(78, '¿Qué valor es importante?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Ambición', 'A', NULL, '5', 1),
-(79, '¿Qué se debe evitar?', 'Actuar sin pensar', 'Reflexionar', 'Esperar', 'Analizar', 'A', NULL, '5', 1),
-(80, '¿Qué actitud es correcta?', 'Pensar', 'Apresurarse', 'Ignorar', 'Evitar', 'A', NULL, '5', 1),
-(81, '¿Qué consecuencia hay?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '5', 1),
-(82, '¿Qué valor se resalta?', 'Paciencia', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '5', 1),
-(83, '¿Qué enseñanza queda?', 'Reflexionar', 'Ignorar', 'Evitar', 'Correr', 'A', NULL, '5', 1),
-(84, '¿Qué simboliza la historia?', 'Lección', 'Juego', 'Destino', 'Suerte', 'A', NULL, '5', 1),
-(85, '¿Qué actitud evita errores?', 'Pensar', 'Apresurarse', 'Ignorar', 'Evitar', 'A', NULL, '5', 1),
-(86, '¿Qué valor espiritual hay?', 'Obediencia', 'Desobediencia', 'Olvido', 'Desorden', 'A', NULL, '5', 1),
-(87, '¿Qué enseña el capítulo 6?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '6', 1),
-(88, '¿Qué valor destaca?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Ambición', 'A', NULL, '6', 1),
-(89, '¿Qué se debe evitar?', 'Apresurarse', 'Pensar', 'Reflexionar', 'Esperar', 'A', NULL, '6', 1),
-(90, '¿Qué actitud es correcta?', 'Reflexión', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '6', 1),
-(91, '¿Qué consecuencia hay?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '6', 1),
-(92, '¿Qué valor se promueve?', 'Dominio propio', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '6', 1),
-(93, '¿Qué enseñanza deja?', 'Pensar antes', 'Actuar rápido', 'Ignorar', 'Evitar', 'A', NULL, '6', 1),
-(94, '¿Qué simboliza la historia?', 'Lección', 'Juego', 'Suerte', 'Destino', 'A', NULL, '6', 1),
-(95, '¿Qué actitud mejora decisiones?', 'Paciencia', 'Impulsividad', 'Orgullo', 'Envidia', 'A', NULL, '6', 1),
-(96, '¿Qué valor espiritual se enseña?', 'Obediencia', 'Desobediencia', 'Olvido', 'Desorden', 'A', NULL, '6', 1),
-(97, '¿Qué enseña el capítulo 7?', 'Reflexión', 'Impulsividad', 'Orgullo', 'Egoísmo', 'A', NULL, '7', 1),
-(98, '¿Qué valor es importante?', 'Sabiduría', 'Impulsividad', 'Orgullo', 'Ambición', 'A', NULL, '7', 1),
-(99, '¿Qué se debe evitar?', 'Actuar sin pensar', 'Reflexionar', 'Esperar', 'Analizar', 'A', NULL, '7', 1),
-(100, '¿Qué actitud es correcta?', 'Pensar', 'Apresurarse', 'Ignorar', 'Evitar', 'A', NULL, '7', 1),
-(101, '¿Qué consecuencia hay?', 'Pérdida', 'Ganancia', 'Felicidad', 'Premio', 'A', NULL, '7', 1),
-(102, '¿Qué valor se resalta?', 'Paciencia', 'Orgullo', 'Envidia', 'Ambición', 'A', NULL, '7', 1),
-(103, '¿Qué enseñanza queda?', 'Reflexionar', 'Ignorar', 'Evitar', 'Correr', 'A', NULL, '7', 1),
-(104, '¿Qué simboliza la historia?', 'Lección', 'Juego', 'Destino', 'Suerte', 'A', NULL, '7', 1),
-(105, '¿Qué actitud evita errores?', 'Pensar', 'Apresurarse', 'Ignorar', 'Evitar', 'A', NULL, '7', 1),
-(106, '¿Qué valor espiritual hay?', 'Obediencia', 'Desobediencia', 'Olvido', 'Desorden', 'A', NULL, '7', 1),
-(107, 'fff', '1', '2', '3', '4', 'B', NULL, 'final', 2),
-(108, 'ftgf', 'erf', 'ert', 'erty', 'ertyui', 'A', NULL, 'final', 2),
-(109, '¿Qué características necesita un animal para ser clasificado como reptil?', 'Tiene plumas y pone huevos', 'Posee piel impermeabilizada y generalmente cubierta de escamas.', 'Tiene el cuerpo cubierto de pelo.', 'Respira únicamente por la piel.', 'B', NULL, '1', 0);
+(217, '¿Cuál es el objetivo principal de acampar?', 'A) Competir con otros clubes.', 'B) Disfrutar de la naturaleza, desarrollar habilidades y fortalecer el compañerismo.', 'C) Evitar realizar actividades al aire libre.', 'D) Permanecer dentro de las carpas todo el día.', 'B', NULL, 'final', 6),
+(218, '¿Qué elemento es indispensable para protegerse del frío durante una noche de campamento?', 'A) Una linterna.', 'B) Una brújula.', 'C) Una bolsa de dormir.', 'D) Un silbato', 'C', NULL, 'final', 6),
+(219, '¿Qué se debe hacer antes de instalar una carpa?', 'A) Buscar un terreno plano, seco y seguro.', 'B) Instalarla debajo de árboles con ramas secas.', 'C) Colocarla en una pendiente pronunciada.', 'D) Buscar un lugar cercano a un barranco.', 'A', NULL, 'final', 6),
+(220, '¿Cuál es la función principal de una brújula?', 'A) Medir la temperatura.', 'B) Indicar los puntos cardinales y orientar.', 'C) Medir la velocidad del viento.', 'D) Calcular la distancia recorrida.', 'B', NULL, 'final', 6),
+(221, '¿Qué se debe hacer con la basura durante un campamento?', 'A) Enterrar toda la basura sin clasificarla.', 'B) Dejarla en el lugar donde se realizó el campamento.', 'C) Quemarla sin tomar precauciones.', 'D) Recogerla y depositarla en los lugares correspondientes.', 'D', NULL, 'final', 6),
+(222, '¿Cuál es el equipo adecuado para encender una fogata de manera segura?', 'A) Fósforos o encendedor y materiales apropiados para iniciar el fuego.', 'B) Plásticos y botellas.', 'C) Combustible derramado sobre la madera.', 'D) Papel y materiales tóxicos.', 'A', NULL, 'final', 6),
+(223, '¿Qué se debe hacer antes de abandonar el lugar donde se realizó una fogata?', 'A) Cubrirla con hojas secas.', 'B) Dejar que se apague sola.', 'C) Apagarla completamente con agua y comprobar que no queden brasas calientes.', 'D) Colocar más leña para que dure toda la noche.', 'C', NULL, 'final', 6),
+(224, '¿Qué elemento sirve para proporcionar iluminación durante la noche?', 'A) Cantimplora.', 'B) Linterna.', 'C) Brújula.', 'D) Cuerda.', 'B', NULL, 'final', 6),
+(225, '¿Cuál es la mejor manera de conservar los alimentos durante un campamento?', 'A) Dejarlos expuestos al sol.', 'B) Guardarlos junto a la basura.', 'C) Dejarlos fuera de la carpa durante toda la noche.', 'D) Mantenerlos protegidos, limpios y almacenados adecuadamente.', 'D', NULL, 'final', 6),
+(226, '10. ¿Qué principio debe respetar todo conquistador al realizar actividades en la naturaleza?', 'A) Dejar el lugar mejor de como lo encontró, cuidando el medio ambiente.', 'B) Cortar árboles para facilitar el campamento.', 'C) Alimentar a todos los animales silvestres.', 'D) Dejar restos de comida en el suelo.', 'A', NULL, 'final', 6);
 
 -- --------------------------------------------------------
 
@@ -324,7 +227,8 @@ INSERT INTO `resultados` (`id`, `id_usuario`, `puntaje`, `total`, `porcentaje`, 
 (5, 2, 22, 45, 49, '2026-08-17 06:11:06', NULL, NULL, NULL, NULL, NULL, NULL),
 (9, 2, 10, 10, 100, '2026-08-17 06:18:53', NULL, NULL, NULL, NULL, NULL, NULL),
 (10, NULL, 10, 45, 22, '2026-10-26 23:32:40', 1, '1', 49, 'Facundo Joaquin Salas Dominguez', 1, NULL),
-(11, NULL, 7, 45, 16, '2026-10-27 00:26:14', 1, '1', 35, 'joaquin salas dominguez', 1, '[{\"p\":\"¿Cuál es el mensaje principal del libro?\",\"a\":\"La comida es importante\",\"b\":\"La obediencia a Dios\",\"c\":\"B\",\"d\":\"El éxito\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué representa el estofado?\",\"a\":\"Una bendición\",\"b\":\"Una tentación\",\"c\":\"B\",\"d\":\"Un premio\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Quién toma una decisión impulsiva?\",\"a\":\"El protagonista\",\"b\":\"Un amigo\",\"c\":\"A\",\"d\":\"Un profeta\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza deja la historia?\",\"a\":\"Valorar lo espiritual\",\"b\":\"Buscar riqueza\",\"c\":\"A\",\"d\":\"Ignorar consejos\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza la pérdida?\",\"a\":\"Fracaso\",\"b\":\"Consecuencia de malas decisiones\",\"c\":\"B\",\"d\":\"Destino\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor se resalta?\",\"a\":\"Paciencia\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Ambición\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud evita errores?\",\"a\":\"Paciencia\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Desobediencia\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza bíblica se refleja?\",\"a\":\"Obediencia\",\"b\":\"Desorden\",\"c\":\"A\",\"d\":\"Orgullo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué representa la decisión final?\",\"a\":\"Victoria\",\"b\":\"Pérdida\",\"c\":\"B\",\"d\":\"Suerte\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué error se comete?\",\"a\":\"Impulsividad\",\"b\":\"Paciencia\",\"c\":\"A\",\"d\":\"Amor\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué se prioriza incorrectamente?\",\"a\":\"Espiritual\",\"b\":\"Material\",\"c\":\"B\",\"d\":\"Social\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué se aprende del error?\",\"a\":\"No pensar\",\"b\":\"Pensar antes de actuar\",\"c\":\"B\",\"d\":\"Ignorar\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué actitud faltó?\",\"a\":\"Sabiduría\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Miedo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el hambre?\",\"a\":\"Necesidad\",\"b\":\"Debilidad\",\"c\":\"B\",\"d\":\"Éxito\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué consecuencia hay?\",\"a\":\"Pérdida\",\"b\":\"Ganancia\",\"c\":\"A\",\"d\":\"Premio\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza se repite?\",\"a\":\"Reflexión\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Pereza\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor es importante?\",\"a\":\"Control\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué acción fue incorrecta?\",\"a\":\"Decidir rápido\",\"b\":\"Esperar\",\"c\":\"A\",\"d\":\"Pensar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el acto?\",\"a\":\"Error\",\"b\":\"Victoria\",\"c\":\"A\",\"d\":\"Fuerza\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza queda?\",\"a\":\"Ser sabio\",\"b\":\"Ser impulsivo\",\"c\":\"A\",\"d\":\"Correr\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud se critica?\",\"a\":\"Impulsividad\",\"b\":\"Paciencia\",\"c\":\"A\",\"d\":\"Fe\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué se pierde?\",\"a\":\"Algo valioso\",\"b\":\"Nada\",\"c\":\"A\",\"d\":\"Amigos\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Qué representa el intercambio?\",\"a\":\"Error grave\",\"b\":\"Éxito\",\"c\":\"A\",\"d\":\"Juego\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor falta?\",\"a\":\"Dominio propio\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Ambición\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza deja?\",\"a\":\"Pensar\",\"b\":\"Actuar rápido\",\"c\":\"A\",\"d\":\"Evitar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud mejora decisiones?\",\"a\":\"Reflexión\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Orgullo\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué error se evita?\",\"a\":\"Apresurarse\",\"b\":\"Esperar\",\"c\":\"A\",\"d\":\"Reflexionar\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Qué representa el deseo?\",\"a\":\"Debilidad\",\"b\":\"Fuerza\",\"c\":\"A\",\"d\":\"Logro\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza es clave?\",\"a\":\"Control\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Envidia\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué se necesita?\",\"a\":\"Paciencia\",\"b\":\"Rapidez\",\"c\":\"A\",\"d\":\"Impulsividad\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué actitud genera errores?\",\"a\":\"Impulsividad\",\"b\":\"Paciencia\",\"c\":\"A\",\"d\":\"Amor\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza espiritual hay?\",\"a\":\"Obedecer\",\"b\":\"Ignorar\",\"c\":\"A\",\"d\":\"Olvidar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué representa la historia?\",\"a\":\"Lección\",\"b\":\"Juego\",\"c\":\"A\",\"d\":\"Cuento\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor se promueve?\",\"a\":\"Sabiduría\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud es correcta?\",\"a\":\"Pensar\",\"b\":\"Actuar rápido\",\"c\":\"A\",\"d\":\"Evitar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué consecuencia trae el error?\",\"a\":\"Pérdida\",\"b\":\"Ganancia\",\"c\":\"A\",\"d\":\"Premio\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el acto?\",\"a\":\"Debilidad\",\"b\":\"Fuerza\",\"c\":\"A\",\"d\":\"Logro\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza queda?\",\"a\":\"Reflexionar\",\"b\":\"Ignorar\",\"c\":\"A\",\"d\":\"Correr\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué valor falta?\",\"a\":\"Control\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud es mejor?\",\"a\":\"Paciencia\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué decisión fue mala?\",\"a\":\"Apresurada\",\"b\":\"Pensada\",\"c\":\"A\",\"d\":\"Sabia\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué aprendizaje queda?\",\"a\":\"Pensar antes\",\"b\":\"Actuar rápido\",\"c\":\"A\",\"d\":\"Evitar\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el error?\",\"a\":\"Debilidad\",\"b\":\"Fuerza\",\"c\":\"A\",\"d\":\"Logro\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza es clave?\",\"a\":\"Paciencia\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Envidia\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor es importante?\",\"a\":\"Dominio propio\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Ambición\",\"m\":\"C\",\"e\":\"\"}]');
+(11, NULL, 7, 45, 16, '2026-10-27 00:26:14', 1, '1', 35, 'joaquin salas dominguez', 1, '[{\"p\":\"¿Cuál es el mensaje principal del libro?\",\"a\":\"La comida es importante\",\"b\":\"La obediencia a Dios\",\"c\":\"B\",\"d\":\"El éxito\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué representa el estofado?\",\"a\":\"Una bendición\",\"b\":\"Una tentación\",\"c\":\"B\",\"d\":\"Un premio\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Quién toma una decisión impulsiva?\",\"a\":\"El protagonista\",\"b\":\"Un amigo\",\"c\":\"A\",\"d\":\"Un profeta\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza deja la historia?\",\"a\":\"Valorar lo espiritual\",\"b\":\"Buscar riqueza\",\"c\":\"A\",\"d\":\"Ignorar consejos\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza la pérdida?\",\"a\":\"Fracaso\",\"b\":\"Consecuencia de malas decisiones\",\"c\":\"B\",\"d\":\"Destino\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor se resalta?\",\"a\":\"Paciencia\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Ambición\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud evita errores?\",\"a\":\"Paciencia\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Desobediencia\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza bíblica se refleja?\",\"a\":\"Obediencia\",\"b\":\"Desorden\",\"c\":\"A\",\"d\":\"Orgullo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué representa la decisión final?\",\"a\":\"Victoria\",\"b\":\"Pérdida\",\"c\":\"B\",\"d\":\"Suerte\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué error se comete?\",\"a\":\"Impulsividad\",\"b\":\"Paciencia\",\"c\":\"A\",\"d\":\"Amor\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué se prioriza incorrectamente?\",\"a\":\"Espiritual\",\"b\":\"Material\",\"c\":\"B\",\"d\":\"Social\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué se aprende del error?\",\"a\":\"No pensar\",\"b\":\"Pensar antes de actuar\",\"c\":\"B\",\"d\":\"Ignorar\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué actitud faltó?\",\"a\":\"Sabiduría\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Miedo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el hambre?\",\"a\":\"Necesidad\",\"b\":\"Debilidad\",\"c\":\"B\",\"d\":\"Éxito\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué consecuencia hay?\",\"a\":\"Pérdida\",\"b\":\"Ganancia\",\"c\":\"A\",\"d\":\"Premio\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza se repite?\",\"a\":\"Reflexión\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Pereza\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor es importante?\",\"a\":\"Control\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué acción fue incorrecta?\",\"a\":\"Decidir rápido\",\"b\":\"Esperar\",\"c\":\"A\",\"d\":\"Pensar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el acto?\",\"a\":\"Error\",\"b\":\"Victoria\",\"c\":\"A\",\"d\":\"Fuerza\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza queda?\",\"a\":\"Ser sabio\",\"b\":\"Ser impulsivo\",\"c\":\"A\",\"d\":\"Correr\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud se critica?\",\"a\":\"Impulsividad\",\"b\":\"Paciencia\",\"c\":\"A\",\"d\":\"Fe\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué se pierde?\",\"a\":\"Algo valioso\",\"b\":\"Nada\",\"c\":\"A\",\"d\":\"Amigos\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Qué representa el intercambio?\",\"a\":\"Error grave\",\"b\":\"Éxito\",\"c\":\"A\",\"d\":\"Juego\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor falta?\",\"a\":\"Dominio propio\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Ambición\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza deja?\",\"a\":\"Pensar\",\"b\":\"Actuar rápido\",\"c\":\"A\",\"d\":\"Evitar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud mejora decisiones?\",\"a\":\"Reflexión\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Orgullo\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué error se evita?\",\"a\":\"Apresurarse\",\"b\":\"Esperar\",\"c\":\"A\",\"d\":\"Reflexionar\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Qué representa el deseo?\",\"a\":\"Debilidad\",\"b\":\"Fuerza\",\"c\":\"A\",\"d\":\"Logro\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza es clave?\",\"a\":\"Control\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Envidia\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué se necesita?\",\"a\":\"Paciencia\",\"b\":\"Rapidez\",\"c\":\"A\",\"d\":\"Impulsividad\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué actitud genera errores?\",\"a\":\"Impulsividad\",\"b\":\"Paciencia\",\"c\":\"A\",\"d\":\"Amor\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza espiritual hay?\",\"a\":\"Obedecer\",\"b\":\"Ignorar\",\"c\":\"A\",\"d\":\"Olvidar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué representa la historia?\",\"a\":\"Lección\",\"b\":\"Juego\",\"c\":\"A\",\"d\":\"Cuento\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor se promueve?\",\"a\":\"Sabiduría\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud es correcta?\",\"a\":\"Pensar\",\"b\":\"Actuar rápido\",\"c\":\"A\",\"d\":\"Evitar\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué consecuencia trae el error?\",\"a\":\"Pérdida\",\"b\":\"Ganancia\",\"c\":\"A\",\"d\":\"Premio\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el acto?\",\"a\":\"Debilidad\",\"b\":\"Fuerza\",\"c\":\"A\",\"d\":\"Logro\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza queda?\",\"a\":\"Reflexionar\",\"b\":\"Ignorar\",\"c\":\"A\",\"d\":\"Correr\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué valor falta?\",\"a\":\"Control\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué actitud es mejor?\",\"a\":\"Paciencia\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Egoísmo\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué decisión fue mala?\",\"a\":\"Apresurada\",\"b\":\"Pensada\",\"c\":\"A\",\"d\":\"Sabia\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué aprendizaje queda?\",\"a\":\"Pensar antes\",\"b\":\"Actuar rápido\",\"c\":\"A\",\"d\":\"Evitar\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Qué simboliza el error?\",\"a\":\"Debilidad\",\"b\":\"Fuerza\",\"c\":\"A\",\"d\":\"Logro\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué enseñanza es clave?\",\"a\":\"Paciencia\",\"b\":\"Impulsividad\",\"c\":\"A\",\"d\":\"Envidia\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué valor es importante?\",\"a\":\"Dominio propio\",\"b\":\"Orgullo\",\"c\":\"A\",\"d\":\"Ambición\",\"m\":\"C\",\"e\":\"\"}]'),
+(12, NULL, 4, 10, 40, '2026-11-18 18:11:40', 6, 'final', 47, 'Facundo Salas', 2, '[{\"p\":\"¿Qué elemento es indispensable para protegerse del frío durante una noche de campamento?\",\"a\":\"A) Una linterna.\",\"b\":\"B) Una brújula.\",\"c\":\"C\",\"d\":\"D) Un silbato\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué se debe hacer antes de instalar una carpa?\",\"a\":\"A) Buscar un terreno plano, seco y seguro.\",\"b\":\"B) Instalarla debajo de árboles con ramas secas.\",\"c\":\"A\",\"d\":\"D) Buscar un lugar cercano a un barranco.\",\"m\":\"C\",\"e\":\"\"},{\"p\":\"¿Cuál es el equipo adecuado para encender una fogata de manera segura?\",\"a\":\"A) Fósforos o encendedor y materiales apropiados para iniciar el fuego.\",\"b\":\"B) Plásticos y botellas.\",\"c\":\"A\",\"d\":\"D) Papel y materiales tóxicos.\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Qué se debe hacer con la basura durante un campamento?\",\"a\":\"A) Enterrar toda la basura sin clasificarla.\",\"b\":\"B) Dejarla en el lugar donde se realizó el campamento.\",\"c\":\"D\",\"d\":\"D) Recogerla y depositarla en los lugares correspondientes.\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Cuál es la mejor manera de conservar los alimentos durante un campamento?\",\"a\":\"A) Dejarlos expuestos al sol.\",\"b\":\"B) Guardarlos junto a la basura.\",\"c\":\"D\",\"d\":\"D) Mantenerlos protegidos, limpios y almacenados adecuadamente.\",\"m\":\"D\",\"e\":\"\"},{\"p\":\"¿Cuál es la función principal de una brújula?\",\"a\":\"A) Medir la temperatura.\",\"b\":\"B) Indicar los puntos cardinales y orientar.\",\"c\":\"B\",\"d\":\"D) Calcular la distancia recorrida.\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué se debe hacer antes de abandonar el lugar donde se realizó una fogata?\",\"a\":\"A) Cubrirla con hojas secas.\",\"b\":\"B) Dejar que se apague sola.\",\"c\":\"C\",\"d\":\"D) Colocar más leña para que dure toda la noche.\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"¿Cuál es el objetivo principal de acampar?\",\"a\":\"A) Competir con otros clubes.\",\"b\":\"B) Disfrutar de la naturaleza, desarrollar habilidades y fortalecer el compañerismo.\",\"c\":\"B\",\"d\":\"D) Permanecer dentro de las carpas todo el día.\",\"m\":\"B\",\"e\":\"\"},{\"p\":\"¿Qué elemento sirve para proporcionar iluminación durante la noche?\",\"a\":\"A) Cantimplora.\",\"b\":\"B) Linterna.\",\"c\":\"B\",\"d\":\"D) Cuerda.\",\"m\":\"A\",\"e\":\"\"},{\"p\":\"10. ¿Qué principio debe respetar todo conquistador al realizar actividades en la naturaleza?\",\"a\":\"A) Dejar el lugar mejor de como lo encontró, cuidando el medio ambiente.\",\"b\":\"B) Cortar árboles para facilitar el campamento.\",\"c\":\"A\",\"d\":\"D) Dejar restos de comida en el suelo.\",\"m\":\"D\",\"e\":\"\"}]');
 
 -- --------------------------------------------------------
 
@@ -427,19 +331,19 @@ ALTER TABLE `usuarios_simulador`
 -- AUTO_INCREMENT de la tabla `cuestionarios`
 --
 ALTER TABLE `cuestionarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `enlaces_examen`
 --
 ALTER TABLE `enlaces_examen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
 
 --
 -- AUTO_INCREMENT de la tabla `ranking`
@@ -451,7 +355,7 @@ ALTER TABLE `ranking`
 -- AUTO_INCREMENT de la tabla `resultados`
 --
 ALTER TABLE `resultados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
